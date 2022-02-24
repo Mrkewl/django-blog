@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %} My Blog {% endblock title %} 
+{% block css_files %}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
+{% endblock css_files %}
+{%block content %}
+
+<section id="welcome">
+  <header>
+    <img src="{% static 'blog/images/jazz.jpg' %}" alt="Jazz- The Author of this blog" />
+    <h2>Jazz Blog</h2>
+  </header>
+  <p>Hi i am jazz and i love to blog about tech and world!</p>
+</section>
+<section id="latest-posts">
+  <h2>My latest thoughts</h2>
+  <ul>
+  {% for post in posts %}
+   {% include "blog/includes/post.html" %}
+  {% endfor %}
+  </ul>
+</section>
+<section id="about">
+  <h2>What i do</h2>
+  <p>
+    I love programming, i love to help others and i enjoy exploring new
+    technologies in general!
+  </p>
+  <p>
+  My goal is to keep on growing as a developer - and if i could help you do the same, i'd be very happy!
+  </p>
+</section>
+{% endblock content %}
